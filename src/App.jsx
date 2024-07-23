@@ -47,12 +47,32 @@ function App() {
     // defaulting to morning batch
     const [batchNo, setBatchNo] = useState(1);
 
+    const [table, setTable] = useState(
+        Array(days.length).fill(
+            Array(timings[batchNo].length).fill('')
+        )
+    );
+
+    function updateTable(i, j, value) {
+        let newTable = table;
+        newTable[i][j] = value;
+
+        setTable(newTable);
+    }
+
 	return (
 		<div className='App'>
             <Header />
             <div className='container'>
                 <Course course={course} onInput={setCourse}/>
-                <TimeTable slots={slots} days={days} timings = {timings} no={batchNo}/>
+                <TimeTable 
+                    slots={slots} 
+                    days={days} 
+                    timings = {timings} 
+                    no={batchNo} 
+                    table={table} 
+                    handleCell = {updateTable}
+                />
             </div>
             <Downloader />
             <Footer />
