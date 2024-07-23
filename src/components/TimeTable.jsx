@@ -12,10 +12,10 @@ export default function TimeTable ({slots, days, timings, no}) {
 
 function TableHeading ({timings, no}) {
     return (
-        <tr>
+        <thead>
             <th className="cell">Day</th>
             {timings[no].map((time, index) => <th className="cell" key={index}>{time}</th>)}
-        </tr>
+        </thead>
     );
 }
 
