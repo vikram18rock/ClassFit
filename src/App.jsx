@@ -11,8 +11,8 @@ function App() {
 
     // Slot system
     const slots = {
-        'commonSlots' : ['f', 'g', 'h'],
-        'batchSlots' : ['a', 'b', 'c', 'd', 'e', 't']
+        'commonSlots' : ['F', 'G', 'H'],
+        'batchSlots' : ['A', 'B', 'C', 'D', 'E', 'T']
     };
 
     const timings = {
@@ -64,12 +64,18 @@ function App() {
 		<div className='App'>
             <Header />
             <div className='container'>
-                <Course course={course} onInput={setCourse}/>
+                <Course 
+                    slots={slots}
+                    onInput={setCourse}
+                    no={batchNo}
+                    setNo={setBatchNo}
+                />
                 <TimeTable 
                     slots={slots} 
                     days={days} 
                     timings = {timings} 
-                    no={batchNo} 
+                    no={batchNo}
+                    course={course}
                     table={table} 
                     handleCell = {updateTable}
                 />

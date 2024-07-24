@@ -1,5 +1,14 @@
-export default function TimeTable ({slots, days, timings, no, table, handleCell}) {
-    return (
+export default function TimeTable ({days, timings, no, table, handleCell, course}) {
+ 
+	 // Slot system
+    const slots = {
+        'commonSlots' : ['f', 'g', 'h'],
+        'batchSlots' : ['a', 'b', 'c', 'd', 'e', 't']
+    };
+
+	handleCell(0, 0, course);
+	
+	return (
         <div className={"elem table"}>
             <table>
                 <TableHeading timings={timings} no={no}/>
@@ -12,33 +21,34 @@ export default function TimeTable ({slots, days, timings, no, table, handleCell}
 function TableHeading ({timings, no}) {
     return (
         <thead>
-            <th className="cell">Day</th>
-            {timings[no].map((time, index) => <th className="cell" key={index}>{time}</th>)}
+			<tr>
+				<th className="cell" scope="col">Day</th>
+				{timings[no].map((time, index) => <th className="cell" key={index}>{time}</th>)}
+			</tr>
         </thead>
     );
 }
 
-function TableBody ({days, timings, no, table}) {
+function TableBody ({days, table}) {
 	const bdy = [];
 	
 	for (let i = 0; i < table.length; i++) {
 		const row = [
-			<th className="cell">{ days[i] }</th>, 
+			<th className="cell" scope="row" key={-1}>{ days[i] }</th>, 
 		];
 
 		for (let j = 0; j < table[0].length; j++) {
 			row.push(
-				<td className="cell">{ table[i][j] }</td>
+				<td className="cell" key={j}>{ table[i][j] }</td>
 			);
 		}
 
 		bdy.push(
-			<tr>
+			<tr key={i}>
 				{row}
 			</tr>
 		);
 	}
-	console.log(bdy);
 
     return (
         <tbody>

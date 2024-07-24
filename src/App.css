@@ -49,8 +49,13 @@
     
 }
 
-input[type="submit"] {
-    margin: 1em;
+input {
+    width: 9vw;
+}
+
+input, select{
+    margin: 1vh;
+    height: 3vh;
 }
 
 .cell {
@@ -68,4 +73,18 @@ input[type="submit"] {
 
 .elem, .header, .footer, .container, .downloader {
     margin: 0;
+}
+
+input[type="submit"] {
+    background-color: rgb(118, 91, 160);
+    color: white;
+    width: 5vw;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: rgb(118, 91, 160, 0.5);
 }
