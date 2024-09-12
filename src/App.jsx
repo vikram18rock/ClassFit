@@ -48,7 +48,7 @@ function App() {
     const [batchNo, setBatchNo] = useState(1);
 
     const [table, setTable] = useState(
-        Array(days.length).fill(
+        Array(days.length).fill().map( () =>
             Array(timings[batchNo].length).fill('')
         )
     );
