@@ -6,7 +6,6 @@ export default function TimeTable ({days, timings, no, table, handleCell, course
         'batchSlots' : ['a', 'b', 'c', 'd', 'e', 't']
     };
 
-	handleCell(0, 0, course);
 	
 	return (
         <div className={"elem table"}>
